@@ -88,7 +88,7 @@ def connect_host(ip,port,payload):
 
 
 
-# ip_arg = "187.94.48.0/20"
+
 ip_arg = "192.168.15.1/32"
 ips_list = get_list_of_ips(ip_arg)
 
