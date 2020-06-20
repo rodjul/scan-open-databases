@@ -66,10 +66,10 @@ def connect_host(ip,port,payload):
     except BlockingIOError:
         print("{ip} tcp/{port} - Resource temporarily unavailable".format(ip=ip,port=port))
     
+checks = [["192.168.15.1",1234]]
 
-
-# for check in checks:
-#     ip = check[0]
-#     port = check[1]
-#     connect_host(ip, port,mssql_payload)
+for check in checks:
+    ip = check[0]
+    port = check[1]
+    connect_host(ip, port,postgree_payload)
 

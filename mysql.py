@@ -89,15 +89,20 @@ def connect_host(ip,port,payload):
 
 
 
-ip_arg = "192.168.15.1/32"
-ips_list = get_list_of_ips(ip_arg)
+# ip_arg = "192.168.15.1/32"
+# ips_list = get_list_of_ips(ip_arg)
 
-#https://kite.com/python/docs/threading.BoundedSemaphore
-# pool = ThreadPool(processes=MAX_THREADS)
-for ip in ips_list:
-    #https://stackoverflow.com/a/56564152
-    iterable = zip(repeat(ip), range(0, 65536),repeat(mysql_payload))
-    with multiprocessing.Pool(processes=MAX_THREADS) as pool:
-        all_links = pool.starmap(connect_host, iterable)
+# #https://kite.com/python/docs/threading.BoundedSemaphore
+# # pool = ThreadPool(processes=MAX_THREADS)
+# for ip in ips_list:
+#     #https://stackoverflow.com/a/56564152
+#     iterable = zip(repeat(ip), range(0, 65536),repeat(mysql_payload))
+#     with multiprocessing.Pool(processes=MAX_THREADS) as pool:
+#         all_links = pool.starmap(connect_host, iterable)
 
+checks = [["192.168.15.1",1234]]
 
+for check in checks:
+    ip = check[0]
+    port = check[1]
+    connect_host(ip, port,mssql_payload)
